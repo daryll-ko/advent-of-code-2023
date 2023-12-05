@@ -2,7 +2,6 @@ function cross_ranges(ranges_1, ranges_2)
     res = []
     for (l_1, r_1) in ranges_1
         for (l_2, r_2) in ranges_2
-            # println("hi: ($l_1, $r_1), ($l_2, $r_2)")
             if l_1 > r_1
                 break
             elseif r_1 < l_2
@@ -39,14 +38,11 @@ function find_location(seed_ranges, maps)
         for (d_start, s_start, r_length) in map
             push!(map_ranges, (s_start, s_start + (r_length-1)))
         end
+
         sort!(cur)
         sort!(map_ranges)
         all_ranges = cross_ranges(cur, map_ranges)
         # each range in all_ranges should be fully contained in some range in map
-
-        # println("cur:\t\t $cur")
-        # println("map:\t\t $map_ranges")
-        # println("all:\t\t $all_ranges")
 
         next = []
         for (l, r) in all_ranges
@@ -63,8 +59,6 @@ function find_location(seed_ranges, maps)
                 push!(next, (l, r))
             end
         end
-        # println("next:\t\t $next")
-        # println()
         cur = next
     end
     return cur
