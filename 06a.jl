@@ -3,7 +3,6 @@ function get_nums(line)
     return parse.(Int, split(line[i+1:end], ' ') |> filter(s -> length(s) > 0))
 end
 
-
 function solve()
     times = get_nums(readline())
     distances = get_nums(readline())

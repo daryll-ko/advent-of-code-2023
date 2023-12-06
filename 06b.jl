@@ -1,8 +1,7 @@
 function get_nums(line)
     i = findfirst(c -> c == ':', line)
-    return parse.(Int, line[i+1:end] |> filter(c -> !isspace(c) > 0))
+    return parse.(Int, line[i+1:end] |> filter(c -> !isspace(c)))
 end
-
 
 function solve()
     times = get_nums(readline())
