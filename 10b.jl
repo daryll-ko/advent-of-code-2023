@@ -42,7 +42,7 @@ function solve()
         end
     end
 
-    # trace loop
+    # identify loop
     distances = [INF for _ in 1:r, _ in 1:c]
     distances[si, sj] = 0
     is_in_loop = [false for _ in 1:r, _ in 1:c]
